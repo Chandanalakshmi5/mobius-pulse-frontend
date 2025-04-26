@@ -4,7 +4,9 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import HowItWorks from '../components/HowItWorks';
-import Testimonials from '../components/Testimonials';
+import VideoTestimonials from '../components/VideoTestimonials';
+import WhyChooseUs from '../components/WhyChooseUs';
+import PricingPlans from '../components/PricingPlans';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import WhatsAppChat from '../components/WhatsAppChat';
@@ -36,7 +38,9 @@ const Index = () => {
         <Hero />
         <Features />
         <HowItWorks />
-        <Testimonials />
+        <WhyChooseUs />
+        <VideoTestimonials />
+        <PricingPlans />
         <CTA />
       </main>
       <Footer />
