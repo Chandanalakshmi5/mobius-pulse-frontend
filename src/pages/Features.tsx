@@ -6,7 +6,7 @@ import WhatsAppChat from "@/components/WhatsAppChat";
 
 const Features = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#F0E6FF]"> {/* Light violet background */}
       <Navbar />
       <main className="pt-16">
         <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8">

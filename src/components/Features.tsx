@@ -36,7 +36,10 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-24 px-4 sm:px-6 lg:px-8 bg-background relative">
+    <section 
+      id="features" 
+      className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5F0FF] relative" // Light violet background for features section
+    >
       {/* Abstract gradient background */}
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] -z-10" />
       
@@ -52,7 +55,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="glass-panel p-8 transition-all hover:shadow-lg hover:shadow-purple-500/5 hover:border-purple-500/50"
+              className="glass-panel p-8 transition-all hover:shadow-lg hover:shadow-purple-500/5 hover:border-purple-500/50 bg-white/60" // Added semi-transparent white background
             >
               <div className="rounded-full bg-purple-500/10 w-16 h-16 flex items-center justify-center mb-6">
                 {feature.icon}
