@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { X } from "lucide-react";
@@ -7,6 +7,27 @@ import { Card } from "@/components/ui/card";
 
 const WhatsAppChat = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  const [message, setMessage] = useState("");
+  const fullMessage = "Hi! Share any question you have about the service here and we'll respond within 5 minutes";
+
+  useEffect(() => {
+    if (isOpen && !message) {
+      setIsTyping(true);
+      let currentChar = 0;
+      const typingInterval = setInterval(() => {
+        if (currentChar < fullMessage.length) {
+          setMessage(fullMessage.slice(0, currentChar + 1));
+          currentChar++;
+        } else {
+          setIsTyping(false);
+          clearInterval(typingInterval);
+        }
+      }, 50);
+
+      return () => clearInterval(typingInterval);
+    }
+  }, [isOpen]);
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
@@ -27,12 +48,18 @@ const WhatsAppChat = () => {
               variant="ghost" 
               size="icon" 
               className="text-white hover:bg-[#128C7E]"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                setMessage("");
+              }}
             >
               <X className="h-5 w-5" />
             </Button>
           </div>
-          <p className="text-sm mb-4">Hi! Share any question you have about the service here and we'll respond within 5 minutes</p>
+          <p className="text-sm mb-4">
+            {message}
+            {isTyping && <span className="animate-pulse">|</span>}
+          </p>
           <Button 
             className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white"
             onClick={() => window.open('https://wa.me/your-number-here', '_blank')}

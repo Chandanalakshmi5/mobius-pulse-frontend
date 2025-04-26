@@ -1,12 +1,11 @@
-
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen pt-16 overflow-hidden bg-dark bg-grid-pattern relative">
-      {/* Abstract gradient backgrounds */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] -z-10" />
-      <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-700/30 rounded-full blur-[80px] -z-10" />
+    <section className="min-h-screen pt-16 overflow-hidden bg-[#F0F8FF] relative">
+      {/* Abstract gradient backgrounds with lighter colors */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#D3E4FD]/30 rounded-full blur-[100px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-[#E5DEFF]/30 rounded-full blur-[80px] -z-10" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20 lg:pt-32 relative">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">

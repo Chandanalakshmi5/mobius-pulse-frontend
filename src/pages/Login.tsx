@@ -17,15 +17,21 @@ const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Login attempt with:", { email, password, rememberMe });
-    // Actual authentication would be implemented here
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#F0F8FF] to-white">
       <Navbar />
       <main className="pt-24 px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-[80vh]">
         <Card className="w-full max-w-md shadow-lg">
           <CardHeader className="space-y-1 text-center">
+            <div className="flex justify-center mb-4">
+              <img 
+                src="/lovable-uploads/a6f41e2f-4457-4daf-8202-2d528274435e.png"
+                alt="MobiusEngine.ai"
+                className="h-12"
+              />
+            </div>
             <CardTitle className="text-3xl font-bold">Sign In</CardTitle>
             <p className="text-sm text-gray-500">
               Enter your credentials to access your account

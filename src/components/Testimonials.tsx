@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
@@ -27,6 +26,14 @@ const Testimonials = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
   const nextTestimonial = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
   };
@@ -36,31 +43,32 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 px-4 sm:px-6 lg:px-8 bg-background relative">
-      {/* Abstract gradient background */}
-      <div className="absolute top-0 right-1/4 w-72 h-72 bg-purple-700/10 rounded-full blur-[80px] -z-10" />
+    <section id="testimonials" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F0F8FF] to-white relative">
+      <div className="absolute top-0 right-1/4 w-72 h-72 bg-[#E5DEFF]/20 rounded-full blur-[80px] -z-10" />
       
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">What Our Clients Say</h2>
-          <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Discover how MobiusEngine.ai is helping organizations transform their data operations.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto glass-panel p-8 sm:p-12 relative">
-          <div className="absolute top-8 left-8 text-purple-500/40">
+        <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-8 sm:p-12 rounded-2xl shadow-lg relative">
+          <div className="absolute top-8 left-8 text-[#D3E4FD]">
             <Quote className="h-20 w-20" />
           </div>
           
           <div className="relative z-10">
-            <p className="text-xl sm:text-2xl mb-8 text-foreground/90 relative z-10">
-              {testimonials[activeIndex].quote}
-            </p>
+            <div className="min-h-[200px] flex items-center">
+              <p className="text-xl sm:text-2xl mb-8 text-gray-800 relative z-10 transition-opacity duration-500">
+                {testimonials[activeIndex].quote}
+              </p>
+            </div>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
               <div>
                 <p className="font-semibold text-lg">{testimonials[activeIndex].author}</p>
-                <p className="text-foreground/70">
+                <p className="text-gray-600">
                   {testimonials[activeIndex].role}, {testimonials[activeIndex].company}
                 </p>
               </div>
@@ -88,13 +96,12 @@ const Testimonials = () => {
           </div>
         </div>
         
-        {/* Testimonial indicators */}
         <div className="flex justify-center gap-2 mt-6">
           {testimonials.map((_, index) => (
             <button
               key={index}
               className={`h-2 rounded-full transition-all ${
-                index === activeIndex ? "w-8 bg-primary" : "w-2 bg-foreground/20"
+                index === activeIndex ? "w-8 bg-primary" : "w-2 bg-gray-200/20"
               }`}
               onClick={() => setActiveIndex(index)}
               aria-label={`Go to testimonial ${index + 1}`}
