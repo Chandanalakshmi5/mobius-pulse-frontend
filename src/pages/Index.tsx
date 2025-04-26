@@ -7,13 +7,12 @@ import HowItWorks from '../components/HowItWorks';
 import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
+import WhatsAppChat from '../components/WhatsAppChat';
 
 const Index = () => {
   useEffect(() => {
-    // Set dark mode by default
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('dark');
     
-    // For smoothly revealing elements as they scroll into view
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -31,7 +30,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="dark min-h-screen bg-background text-foreground flex flex-col">
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col">
       <Navbar />
       <main className="flex-grow">
         <Hero />
@@ -41,6 +40,7 @@ const Index = () => {
         <CTA />
       </main>
       <Footer />
+      <WhatsAppChat />
     </div>
   );
 };
