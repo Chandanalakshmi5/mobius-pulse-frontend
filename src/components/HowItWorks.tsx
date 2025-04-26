@@ -1,4 +1,3 @@
-
 import { ArrowRight, Database, LineChart, Layers, Settings } from "lucide-react";
 
 const HowItWorks = () => {
@@ -26,9 +25,8 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 px-4 sm:px-6 lg:px-8 bg-secondary relative">
-      {/* Abstract gradient background */}
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] -z-10" />
+    <section id="how-it-works" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F8FAFC] relative">
+      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#E5DEFF]/20 rounded-full blur-[100px] -z-10" />
       
       <div className="container mx-auto">
         <div className="text-center mb-16">
@@ -42,22 +40,21 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div key={index} className="relative">
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12 glass-panel p-6 animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
-                <div className="flex-shrink-0 rounded-full bg-purple-500/20 w-20 h-20 flex items-center justify-center">
+                <div className="flex-shrink-0 rounded-full bg-[#D3E4FD] w-20 h-20 flex items-center justify-center">
                   {step.icon}
                 </div>
-                <div>
+                <div className="flex-grow">
                   <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                   <p className="text-foreground/70">{step.description}</p>
                 </div>
-                <div className="flex-shrink-0 text-3xl font-bold text-purple-500/30">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#E5DEFF] flex items-center justify-center text-2xl font-bold text-primary">
                   {index + 1}
                 </div>
               </div>
               
-              {/* Connector arrow */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute left-10 ml-0.5 h-8 w-0.5 bg-purple-500/30">
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 text-purple-500/50">
+                <div className="hidden md:block absolute left-10 ml-0.5 h-8 w-0.5 bg-[#D3E4FD]">
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 text-[#D3E4FD]">
                     <ArrowRight className="h-4 w-4 -rotate-90" />
                   </div>
                 </div>

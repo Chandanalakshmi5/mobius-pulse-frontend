@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -32,8 +31,8 @@ const WhatsAppChat = () => {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       {isOpen && (
-        <Card className="absolute bottom-16 right-0 w-[320px] p-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg mb-4">
-          <div className="flex justify-between items-center mb-4 bg-[#25D366] text-white p-3 rounded-t-lg -mt-4 -mx-4">
+        <Card className="absolute bottom-16 right-0 w-[320px] p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg mb-4">
+          <div className="flex justify-between items-center mb-6 bg-[#25D366] text-white p-4 rounded-t-lg -mt-6 -mx-6">
             <div className="flex items-center gap-2">
               <Avatar className="h-10 w-10">
                 <AvatarImage src="/lovable-uploads/732234c6-b8bd-48c3-a2a1-488da0605cc9.png" />
@@ -56,16 +55,18 @@ const WhatsAppChat = () => {
               <X className="h-5 w-5" />
             </Button>
           </div>
-          <p className="text-sm mb-4">
-            {message}
-            {isTyping && <span className="animate-pulse">|</span>}
-          </p>
-          <Button 
-            className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white"
-            onClick={() => window.open('https://wa.me/your-number-here', '_blank')}
-          >
-            START CHAT
-          </Button>
+          <div className="space-y-4">
+            <p className="text-sm mb-6">
+              {message}
+              {isTyping && <span className="animate-pulse">|</span>}
+            </p>
+            <Button 
+              className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white"
+              onClick={() => window.open('https://wa.me/your-number-here', '_blank')}
+            >
+              START CHAT
+            </Button>
+          </div>
         </Card>
       )}
       <Button 

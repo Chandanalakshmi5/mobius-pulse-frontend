@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
@@ -43,24 +44,24 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F0F8FF] to-white relative">
+    <section id="testimonials" className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F0F8FF] to-white relative">
       <div className="absolute top-0 right-1/4 w-72 h-72 bg-[#E5DEFF]/20 rounded-full blur-[80px] -z-10" />
       
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">What Our Clients Say</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
             Discover how MobiusEngine.ai is helping organizations transform their data operations.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-8 sm:p-12 rounded-2xl shadow-lg relative">
-          <div className="absolute top-8 left-8 text-[#D3E4FD]">
-            <Quote className="h-20 w-20" />
+        <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-12 rounded-2xl shadow-lg relative">
+          <div className="absolute top-12 left-12 text-[#D3E4FD]">
+            <Quote className="h-24 w-24 opacity-20" />
           </div>
           
           <div className="relative z-10">
-            <div className="min-h-[200px] flex items-center">
+            <div className="min-h-[200px] flex items-center mt-8">
               <p className="text-xl sm:text-2xl mb-8 text-gray-800 relative z-10 transition-opacity duration-500">
                 {testimonials[activeIndex].quote}
               </p>
